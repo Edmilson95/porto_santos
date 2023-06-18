@@ -1,0 +1,55 @@
+package com.santos.porto.teste.conteiner;
+
+import com.santos.porto.teste.enuns.Categoria;
+import com.santos.porto.teste.enuns.Status;
+import com.santos.porto.teste.enuns.Tipo;
+import jakarta.persistence.*;
+import lombok.*;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of ="id")
+
+@Entity(name = "Conteiner")
+@Table(name = "conteiner")
+public class Conteiner {
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String cliente;
+    private String numero;
+
+    @Enumerated(EnumType.STRING)
+    private Tipo tipo;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
+
+    public Conteiner(DadosCadastroConteiner dados) {
+        this.cliente = dados.cliente();
+        this.numero = dados.numero();
+        this.tipo = dados.tipo();
+        this.status = dados.status();
+        this.categoria = dados.categoria();
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoConteiner dados) {
+        if (dados.tipo() != null) {
+            this.tipo = dados.tipo();
+        }
+        if (dados.status() != null) {
+            this.status = dados.status();
+        }
+        if (dados.categoria() != null) {
+            this.categoria = dados.categoria();
+
+        }
+    }
+}

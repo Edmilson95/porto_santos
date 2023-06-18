@@ -1,0 +1,80 @@
+package com.santos.porto.teste.controller;
+
+import com.santos.porto.teste.enuns.Categoria;
+import com.santos.porto.teste.movimentacao.*;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("movimentacao")
+public class MovimentacaoController {
+    @Autowired
+    private MovimentacaoRepository repository;
+
+    @PostMapping
+    @Transactional
+    public void cadastrar(@RequestBody @Valid DadosCadastroMovimentacao dados){
+        repository.save(new Movimentacao(dados));
+    }
+
+    @GetMapping
+    public Page<DadosListagemMovimentacao> listar(@PageableDefault(size = 10, sort = { "dataHoraInicio" }) Pageable paginacao) {
+        return repository.findAll(paginacao).map(DadosListagemMovimentacao::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMovimentacao dados){
+        var movimentacao = repository.getReferenceById(dados.id());
+        movimentacao.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id){ //a anotação pathVariable é para dizer que o parametro esta indo pela URL
+        repository.deleteById(id);
+//        desta forma eu excluo o dado pela URL
+    }
+
+    //    relatório do tipo de movimentações por cliente
+    @GetMapping("/relatorio")
+    public ResponseEntity<List<String>> relatorio(){
+
+        List<Movimentacao> listaMovimentacoes = repository.findAllByOrderByConteiner();
+        List<String> relatorio = new ArrayList<>();
+
+        int contadorExportacao = 0;
+        int contadorImportacao = 0;
+
+        relatorio.add("*-*-*-*-*- RELATÓRIO DE MOVIMENTAÇÕES *-*-*-*-*-*-*");
+
+        for(int i = 0; i < listaMovimentacoes.size(); i++) {
+
+            Movimentacao movimentacaoConteiner = listaMovimentacoes.get(i);
+            relatorio.add("Cliente: " + movimentacaoConteiner.getConteiner().getCliente() + " | Tipo de movimentação: " +
+                    movimentacaoConteiner.getTipoMovimentacao());
+
+            if(movimentacaoConteiner.getConteiner().getCategoria().equals(Categoria.EXPORTACAO)){
+                contadorExportacao++;
+            } else if (movimentacaoConteiner.getConteiner().getCategoria().equals(Categoria.IMPORTACAO)){
+                contadorImportacao++;
+            }
+        }
+
+        relatorio.add("                                      ");
+        relatorio.add("*-*-*-**---*-* SUMÁRIO -*-*-**--**-*-*");
+        relatorio.add("TOTAL DE IMPORTAÇÕES: " + contadorImportacao + " | TOTAL DE EXPORTAÇÕES: "+ contadorExportacao);
+
+
+        return ResponseEntity.ok().body(relatorio);
+    }
+}
