@@ -3,8 +3,7 @@
 ![Porto com vários conteiners](https://s2-g1.glbimg.com/tJyofHaT7PknNkbBkYqTmt7YQOc=/0x0:796x529/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/C/V/bXc9JCTR2ZSaAvoJSkgA/porto.jpg)
 
 
-> Status do projeto: Em desenvolvimento
-> ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
 
 <h1>Descrição do Projeto</h1>
