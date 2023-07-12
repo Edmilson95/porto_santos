@@ -1,5 +1,8 @@
 <h1 align="center"> Porto de Santos API </h1>
 
+![Porto com vários conteiners](https://github.com/Edmilson95/porto_santos/assets/100481668/63dcf390-8f90-44c4-ab4d-a49e71d55657)
+
+
 > Status do projeto: Em desenvolvimento
 
 <h1>Descrição do Projeto</h1>
