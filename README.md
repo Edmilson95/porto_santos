@@ -1,6 +1,6 @@
 <h1 align="center"> Porto de Santos API </h1>
 
-![Porto com vários conteiners](https://github.com/Edmilson95/porto_santos/assets/100481668/63dcf390-8f90-44c4-ab4d-a49e71d55657)
+![Porto com vários conteiners](https://s2-g1.glbimg.com/tJyofHaT7PknNkbBkYqTmt7YQOc=/0x0:796x529/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/C/V/bXc9JCTR2ZSaAvoJSkgA/porto.jpg)
 
 
 > Status do projeto: Em desenvolvimento
