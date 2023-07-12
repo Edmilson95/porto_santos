@@ -15,8 +15,7 @@ JPA/HIBERNATE,
 Maven,
 Insomnia para testar as requisições
 
-Link Youtube demonstrando parte do processo do desenvolvimento(tempo limite de 1 hora de vídeo)
-https://youtu.be/4SXlMr3HTPM
+Link do Youtube demonstrando parte do [processo do desenvolvimento](https://youtu.be/4SXlMr3HTPM)(tempo limite de 1 hora de vídeo)
 
 Link Youtube mostrando CRUD finalizado
 https://youtu.be/1Vg4cvO07mk
