@@ -1,5 +1,7 @@
 # Porto de Santos API
 
+> Status do projeto: Em desenvolvimento
+
 Projeto criado para processo seletivo de empresa de tecnologia atuante na área portuária de Santos.
 Foram criados dois CRUDs, um de Conteiner e outro de Movimentação
 
