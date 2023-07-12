@@ -4,6 +4,8 @@
 
 
 > Status do projeto: Em desenvolvimento
+> ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
 
 <h1>Descrição do Projeto</h1>
 Este projeto é uma API desenvolvida em Java com o uso do framework Spring Boot 3. Ele permite gerenciar operações de movimentação de contêineres, com suporte para os recursos de CRUD de contêineres, CRUD de movimentações e relatórios de movimentação. A API utiliza tecnologias como Lombok, MySql, Flyway, JPA/Hibernate e Maven para facilitar o desenvolvimento e a persistência dos dados. Para testar as requisições, recomenda-se o uso do Insomnia.
