@@ -41,7 +41,5 @@ Execute o aplicativo Java para iniciar o servidor.
 Utilize o Insomnia ou qualquer outra ferramenta similar para testar as requisições disponíveis na API, como os endpoints de CRUD de contêineres e movimentações.
 Para gerar relatórios de movimentação, acesse os endpoints específicos e verifique o resultado retornado pela API.<br><br>
 
-Link do Youtube demonstrando parte do [processo do desenvolvimento](https://youtu.be/4SXlMr3HTPM) <- (tempo limite de 1 hora de vídeo)
 
-Link do Youtube mostrando [CRUD finalizado](https://youtu.be/1Vg4cvO07mk)
 
