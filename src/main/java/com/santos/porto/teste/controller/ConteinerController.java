@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/conteiner")
@@ -19,8 +21,14 @@ public class ConteinerController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastroConteiner dados){
-        repository.save(new Conteiner(dados));
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroConteiner dados, UriComponentsBuilder uriBuilder){
+        var conteiner = new Conteiner(dados);
+
+        repository.save(conteiner);
+
+        var uri = uriBuilder.path("/conteiner/{id}").buildAndExpand(conteiner.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoConteiner(conteiner));
     }
 
     @GetMapping
