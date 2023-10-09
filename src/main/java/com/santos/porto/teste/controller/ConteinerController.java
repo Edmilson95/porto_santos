@@ -32,21 +32,25 @@ public class ConteinerController {
     }
 
     @GetMapping
-    public Page<DadosListagemConteiner> listar(@PageableDefault(size = 10, sort = { "cliente" }) Pageable paginacao) {
-        return repository.findAll(paginacao).map(DadosListagemConteiner::new);
+    public ResponseEntity<Page<DadosListagemConteiner>> listar(@PageableDefault(size = 10, sort = { "cliente" }) Pageable paginacao) {
+        var page = repository.findAll(paginacao).map(DadosListagemConteiner::new);
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoConteiner dados){
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoConteiner dados){
         var conteiner = repository.getReferenceById(dados.id());
         conteiner.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoConteiner(conteiner));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void excluir(@PathVariable Long id){ //a anotação pathVariable é para dizer que o parametro esta indo pela URL
+    public ResponseEntity excluir(@PathVariable Long id){ //a anotação pathVariable é para dizer que o parametro esta indo pela URL
         repository.deleteById(id);
 //        desta forma eu excluo o dado pela URL
+        return ResponseEntity.noContent().build();
     }
 }
