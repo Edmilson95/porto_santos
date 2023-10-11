@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,14 @@ public class MovimentacaoController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastroMovimentacao dados){
-        repository.save(new Movimentacao(dados));
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMovimentacao dados, UriComponentsBuilder uriBuilder){
+        var movimentacao = new Movimentacao(dados);
+
+        repository.save(movimentacao);
+
+        var uri = uriBuilder.path("movimentacao/{id}").buildAndExpand(movimentacao.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoMovimentacao(movimentacao));
     }
 
     @GetMapping
