@@ -1,5 +1,6 @@
 package com.santos.porto.teste.movimentacao;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.santos.porto.teste.conteiner.Conteiner;
 import com.santos.porto.teste.enuns.TipoMovimentacao;
 import jakarta.persistence.*;
@@ -30,9 +31,11 @@ public class Movimentacao {
     @Enumerated(EnumType.STRING)
     private TipoMovimentacao tipoMovimentacao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @Column(name = "data_hora_inicio")
     private @NotNull LocalDateTime dataHoraInicio;
 
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @Column(name = "data_hora_fim")
     private LocalDateTime dataHoraFim;
 
