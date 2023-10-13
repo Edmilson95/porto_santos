@@ -11,11 +11,11 @@ public record DadosCadastroMovimentacao(
         @NotNull
         TipoMovimentacao tipoMovimentacao,
 
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+        @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
         @NotNull
         LocalDateTime dataHoraInicio,
 
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+        @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
         @NotNull
         LocalDateTime dataHoraFim,
 
