@@ -34,22 +34,26 @@ public class MovimentacaoController {
     }
 
     @GetMapping
-    public Page<DadosListagemMovimentacao> listar(@PageableDefault(size = 10, sort = { "dataHoraInicio" }) Pageable paginacao) {
-        return repository.findAll(paginacao).map(DadosListagemMovimentacao::new);
+    public ResponseEntity<Page<DadosListagemMovimentacao>> listar(@PageableDefault(size = 10, sort = { "dataHoraInicio" }) Pageable paginacao) {
+        var page = repository.findAll(paginacao).map(DadosListagemMovimentacao::new);
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoMovimentacao dados){
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoMovimentacao dados){
         var movimentacao = repository.getReferenceById(dados.id());
         movimentacao.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoMovimentacao(movimentacao));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void excluir(@PathVariable Long id){ //a anotação pathVariable é para dizer que o parametro esta indo pela URL
+    public ResponseEntity excluir(@PathVariable Long id){ //a anotação pathVariable é para dizer que o parametro esta indo pela URL
         repository.deleteById(id);
 //        desta forma eu excluo o dado pela URL
+        return ResponseEntity.noContent().build();
     }
 
     //    relatório do tipo de movimentações por cliente
