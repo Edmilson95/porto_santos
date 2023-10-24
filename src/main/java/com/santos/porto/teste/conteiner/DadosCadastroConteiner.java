@@ -24,4 +24,5 @@ public record DadosCadastroConteiner(
 
         @NotNull
         Categoria categoria) {
+
 }
