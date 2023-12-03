@@ -18,8 +18,6 @@ import java.util.List;
 public class ConteinerController {
 
     @Autowired
-    ConteinerRepository repository;
-
     ConteinerService conteinerService;
 
     public ConteinerController(ConteinerService conteinerService){
@@ -57,12 +55,4 @@ public class ConteinerController {
         return ResponseEntity.noContent().build();
     }
 
-/*    @DeleteMapping("/{id}")
-    @Transactional
-    public ResponseEntity excluir(@PathVariable Long id){ //a anotação pathVariable é para dizer que o parametro esta indo pela URL
-        repository.deleteById(id);
-//        desta forma eu excluo o dado pela URL
-        return ResponseEntity.noContent().build();
-    }
- */
 }
