@@ -1,8 +1,8 @@
-package com.santos.porto.teste.movimentacao;
+package com.santos.porto.domain.movimentacao;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.santos.porto.teste.conteiner.Conteiner;
-import com.santos.porto.teste.enuns.TipoMovimentacao;
+import com.santos.porto.domain.conteiner.Conteiner;
+import com.santos.porto.domain.enuns.TipoMovimentacao;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;

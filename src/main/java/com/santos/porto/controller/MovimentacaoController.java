@@ -1,7 +1,7 @@
-package com.santos.porto.teste.controller;
+package com.santos.porto.controller;
 
-import com.santos.porto.teste.enuns.Categoria;
-import com.santos.porto.teste.movimentacao.*;
+import com.santos.porto.domain.movimentacao.*;
+import com.santos.porto.domain.enuns.Categoria;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

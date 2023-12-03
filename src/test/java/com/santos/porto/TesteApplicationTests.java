@@ -1,4 +1,4 @@
-package com.santos.porto.teste;
+package com.santos.porto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

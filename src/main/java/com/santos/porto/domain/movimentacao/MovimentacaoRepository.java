@@ -1,4 +1,4 @@
-package com.santos.porto.teste.movimentacao;
+package com.santos.porto.domain.movimentacao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

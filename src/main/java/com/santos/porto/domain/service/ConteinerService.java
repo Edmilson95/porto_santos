@@ -1,6 +1,9 @@
-package com.santos.porto.teste.conteiner;
+package com.santos.porto.domain.service;
 
-import com.santos.porto.teste.conteiner.repository.ConteinerRepository;
+import com.santos.porto.controller.DTO.DadosAtualizacaoConteiner;
+import com.santos.porto.controller.DTO.DadosCadastroConteiner;
+import com.santos.porto.domain.repository.ConteinerRepository;
+import com.santos.porto.domain.conteiner.Conteiner;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

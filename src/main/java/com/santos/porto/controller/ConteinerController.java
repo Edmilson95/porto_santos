@@ -1,8 +1,9 @@
-package com.santos.porto.teste.controller;
-
-
-import com.santos.porto.teste.conteiner.*;
-import com.santos.porto.teste.conteiner.repository.ConteinerRepository;
+package com.santos.porto.controller;
+import com.santos.porto.controller.DTO.DadosAtualizacaoConteiner;
+import com.santos.porto.domain.conteiner.Conteiner;
+import com.santos.porto.controller.DTO.DadosCadastroConteiner;
+import com.santos.porto.controller.DTO.DadosDetalhamentoConteiner;
+import com.santos.porto.domain.service.ConteinerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

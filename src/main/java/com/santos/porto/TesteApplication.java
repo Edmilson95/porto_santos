@@ -1,4 +1,4 @@
-package com.santos.porto.teste;
+package com.santos.porto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

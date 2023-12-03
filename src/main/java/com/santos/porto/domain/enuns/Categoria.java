@@ -1,4 +1,4 @@
-package com.santos.porto.teste.enuns;
+package com.santos.porto.domain.enuns;
 
 public enum Categoria {
     IMPORTACAO,

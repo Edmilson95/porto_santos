@@ -1,8 +1,8 @@
-package com.santos.porto.teste.conteiner;
+package com.santos.porto.controller.DTO;
 
-import com.santos.porto.teste.enuns.Categoria;
-import com.santos.porto.teste.enuns.Status;
-import com.santos.porto.teste.enuns.Tipo;
+import com.santos.porto.domain.enuns.Categoria;
+import com.santos.porto.domain.enuns.Status;
+import com.santos.porto.domain.enuns.Tipo;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
