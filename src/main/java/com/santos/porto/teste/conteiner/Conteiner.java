@@ -52,4 +52,17 @@ public class Conteiner {
 
         }
     }
+
+    @Override
+    public String toString() {
+        return
+                "\n{" +
+                "\n id = " + id +
+                ",\n cliente = '" + cliente + '\'' +
+                ",\n numero= '" + numero + '\'' +
+                ",\n tipo = " + tipo +
+                ",\n status = " + status +
+                ",\n categoria = " + categoria +
+                "\n}";
+    }
 }

@@ -41,20 +41,28 @@ public class ConteinerController {
         return ResponseEntity.ok(conteinerService.listarConteiners());
     }
 
-    @PutMapping
-    @Transactional
-    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoConteiner dados){
-        var conteiner = repository.getReferenceById(dados.id());
-        conteiner.atualizarInformacoes(dados);
+    @PutMapping()
+    public ResponseEntity<Object> atualizarConteiner(@RequestBody @Valid DadosAtualizacaoConteiner dados){
+        if (dados.id() == null) {
+            return ResponseEntity.badRequest().body("ID é obrigatório para atualização.");
+        }
 
-        return ResponseEntity.ok(new DadosDetalhamentoConteiner(conteiner));
+        return conteinerService.atualizarConteiner(dados);
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity excluir(@PathVariable Long id){
+        conteinerService.excluirConteiner(id);
+        return ResponseEntity.noContent().build();
+    }
+
+/*    @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id){ //a anotação pathVariable é para dizer que o parametro esta indo pela URL
         repository.deleteById(id);
 //        desta forma eu excluo o dado pela URL
         return ResponseEntity.noContent().build();
     }
+ */
 }
