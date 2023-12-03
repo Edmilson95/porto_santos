@@ -1,4 +1,4 @@
-package com.santos.porto.domain.movimentacao;
+package com.santos.porto.controller.DTO;
 
 import com.santos.porto.domain.enuns.TipoMovimentacao;
 import jakarta.validation.constraints.NotNull;

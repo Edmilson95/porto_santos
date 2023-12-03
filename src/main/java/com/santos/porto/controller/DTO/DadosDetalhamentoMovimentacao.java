@@ -1,6 +1,7 @@
-package com.santos.porto.domain.movimentacao;
+package com.santos.porto.controller.DTO;
 
 import com.santos.porto.domain.enuns.TipoMovimentacao;
+import com.santos.porto.domain.movimentacao.Movimentacao;
 
 import java.time.LocalDateTime;
 
