@@ -2,9 +2,9 @@ package com.santos.porto.domain.conteiner;
 
 import com.santos.porto.controller.DTO.DadosAtualizacaoConteiner;
 import com.santos.porto.controller.DTO.DadosCadastroConteiner;
-import com.santos.porto.domain.enuns.Categoria;
-import com.santos.porto.domain.enuns.Status;
-import com.santos.porto.domain.enuns.Tipo;
+import com.santos.porto.domain.conteiner.enuns.Categoria;
+import com.santos.porto.domain.conteiner.enuns.Status;
+import com.santos.porto.domain.conteiner.enuns.Tipo;
 import jakarta.persistence.*;
 import lombok.*;
 

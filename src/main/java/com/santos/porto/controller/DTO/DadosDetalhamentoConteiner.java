@@ -1,9 +1,9 @@
 package com.santos.porto.controller.DTO;
 
 import com.santos.porto.domain.conteiner.Conteiner;
-import com.santos.porto.domain.enuns.Categoria;
-import com.santos.porto.domain.enuns.Status;
-import com.santos.porto.domain.enuns.Tipo;
+import com.santos.porto.domain.conteiner.enuns.Categoria;
+import com.santos.porto.domain.conteiner.enuns.Status;
+import com.santos.porto.domain.conteiner.enuns.Tipo;
 
 public record DadosDetalhamentoConteiner(Long id, String cliente, String numero, Tipo tipo, Status status, Categoria categoria) {
 

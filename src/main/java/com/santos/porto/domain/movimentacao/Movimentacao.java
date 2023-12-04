@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.santos.porto.controller.DTO.DadosAtualizacaoMovimentacao;
 import com.santos.porto.controller.DTO.DadosCadastroMovimentacao;
 import com.santos.porto.domain.conteiner.Conteiner;
-import com.santos.porto.domain.enuns.TipoMovimentacao;
+import com.santos.porto.domain.conteiner.enuns.TipoMovimentacao;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

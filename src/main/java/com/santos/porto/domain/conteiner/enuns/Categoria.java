@@ -1,4 +1,4 @@
-package com.santos.porto.domain.enuns;
+package com.santos.porto.domain.conteiner.enuns;
 
 public enum Categoria {
     IMPORTACAO,

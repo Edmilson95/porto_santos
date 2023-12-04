@@ -2,7 +2,7 @@ package com.santos.porto.controller.DTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.santos.porto.domain.conteiner.Conteiner;
-import com.santos.porto.domain.enuns.TipoMovimentacao;
+import com.santos.porto.domain.conteiner.enuns.TipoMovimentacao;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;

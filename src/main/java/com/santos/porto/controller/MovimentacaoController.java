@@ -5,7 +5,7 @@ import com.santos.porto.controller.DTO.DadosCadastroMovimentacao;
 import com.santos.porto.controller.DTO.DadosDetalhamentoMovimentacao;
 import com.santos.porto.controller.DTO.DadosListagemMovimentacao;
 import com.santos.porto.domain.movimentacao.*;
-import com.santos.porto.domain.enuns.Categoria;
+import com.santos.porto.domain.conteiner.enuns.Categoria;
 import com.santos.porto.domain.repository.MovimentacaoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
