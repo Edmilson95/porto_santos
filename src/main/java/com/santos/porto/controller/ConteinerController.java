@@ -19,7 +19,7 @@ import java.util.List;
 public class ConteinerController {
 
     @Autowired
-    ConteinerService conteinerService;
+    private ConteinerService conteinerService;
 
     public ConteinerController(ConteinerService conteinerService){
         this.conteinerService = conteinerService;

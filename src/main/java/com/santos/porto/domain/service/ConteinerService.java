@@ -24,9 +24,9 @@ public class ConteinerService {
     }
 
     public Conteiner cadastrarConteiner(DadosCadastroConteiner dados){
-        Conteiner conteiner = new Conteiner(dados);
-        repository.save(conteiner);
-        return conteiner;
+        Conteiner conteinerNovo = new Conteiner(dados);
+        repository.save(conteinerNovo);
+        return conteinerNovo;
     }
 
     @Transactional
