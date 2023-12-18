@@ -1,4 +1,4 @@
-package com.santos.porto.infra;
+package com.santos.porto.infra.exception;
 
 import com.sun.jdi.request.DuplicateRequestException;
 import jakarta.persistence.EntityNotFoundException;
