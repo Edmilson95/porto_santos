@@ -2,6 +2,7 @@ package com.santos.porto.controller;
 
 import com.santos.porto.controller.DTO.DadosAutenticacao;
 import com.santos.porto.domain.usuario.Usuario;
+import com.santos.porto.infra.security.DadosTokenJWT;
 import com.santos.porto.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,10 @@ public class AutenticacaoController {
 
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados){
-        var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-        var authentication = manager.authenticate(token);
+        var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+        var authentication = manager.authenticate(authenticationToken);
+        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 
-        return ResponseEntity.ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
+        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
     }
 }
