@@ -1,0 +1,1 @@
+alter table visitas add column motivo_cancelamento varchar(100);

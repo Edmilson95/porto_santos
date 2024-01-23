@@ -1,6 +1,7 @@
 package com.santos.porto.domain.visita;
 
 import com.santos.porto.domain.conteiner.Conteiner;
+import com.santos.porto.domain.conteiner.enuns.MotivoCancelamento;
 import com.santos.porto.domain.movimentacao.Movimentacao;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,6 +18,8 @@ import java.time.LocalDateTime;
 @Table(name = "visita")
 public class Visita {
 
+    private MotivoCancelamento motivoCancelamento;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,4 +35,7 @@ public class Visita {
     private LocalDateTime data;
 
 
+    public void cancelar(MotivoCancelamento motivo) {
+        this.motivoCancelamento = motivo;
+    }
 }
