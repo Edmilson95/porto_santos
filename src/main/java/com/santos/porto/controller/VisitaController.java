@@ -20,8 +20,8 @@ public class VisitaController {
     @PostMapping
     @Transactional
     public ResponseEntity agendar(@RequestBody @Valid DadosAgendamentoVisita dados){
-        agenda.agendar(dados);
-        return ResponseEntity.ok(new DadosDetalhamentoVisita(null, null, null, null));
+        var dto = agenda.agendar(dados);
+        return ResponseEntity.ok(dto);
     }
 
     @DeleteMapping

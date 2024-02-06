@@ -1,4 +1,4 @@
-package com.santos.porto.domain.visita.validacoes;
+package com.santos.porto.domain.visita.validacoes.agendamento;
 
 import com.santos.porto.controller.DTO.DadosAgendamentoVisita;
 import com.santos.porto.domain.ValidacaoException;
@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-@Component
+
+@Component("ValidadorHorarioAntecedenciaVisita")
 public class ValidadorHorarioAntecedencia implements ValidadorAgendamentoDeVisita{
 
     public void validar(DadosAgendamentoVisita dados){

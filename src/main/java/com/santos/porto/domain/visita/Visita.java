@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @EqualsAndHashCode(of ="id")
 
-@Entity(name = "Visita")
-@Table(name = "visita")
+@Entity(name = "Visitas")
+@Table(name = "visitas")
 public class Visita {
 
     private MotivoCancelamento motivoCancelamento;
@@ -36,6 +36,9 @@ public class Visita {
 
 
     public void cancelar(MotivoCancelamento motivo) {
+
         this.motivoCancelamento = motivo;
     }
+
+
 }

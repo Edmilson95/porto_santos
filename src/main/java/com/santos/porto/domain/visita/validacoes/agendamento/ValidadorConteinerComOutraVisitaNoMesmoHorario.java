@@ -1,4 +1,4 @@
-package com.santos.porto.domain.visita.validacoes;
+package com.santos.porto.domain.visita.validacoes.agendamento;
 
 import com.santos.porto.controller.DTO.DadosAgendamentoVisita;
 import com.santos.porto.domain.ValidacaoException;
@@ -13,7 +13,7 @@ public class ValidadorConteinerComOutraVisitaNoMesmoHorario implements Validador
     private VisitaRepository repository;
 
     public void validar(DadosAgendamentoVisita dados){
-        var conteinerPossuiOutraVisitaNoMesmoHorario = repository.existsByConteinerAndData(dados.idConteiner(), dados.data());
+        var conteinerPossuiOutraVisitaNoMesmoHorario = repository.existsByConteinerIdAndDataAndMotivoCancelamentoIsNull(dados.idConteiner(), dados.data());
         if (conteinerPossuiOutraVisitaNoMesmoHorario){
             throw new ValidacaoException("Conteiner já possui outra visita agendada nesse mesmo horário.");
         }

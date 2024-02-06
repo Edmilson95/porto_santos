@@ -1,4 +1,4 @@
-package com.santos.porto.domain.visita.validacoes;
+package com.santos.porto.domain.visita.validacoes.agendamento;
 
 import com.santos.porto.controller.DTO.DadosAgendamentoVisita;
 

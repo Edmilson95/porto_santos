@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public interface VisitaRepository extends JpaRepository<Visita, Long> {
 
-    boolean existsByConteinerAndData(Long idConteiner, LocalDateTime data);
+    boolean existsByConteinerIdAndDataAndMotivoCancelamentoIsNull(Long idConteiner, LocalDateTime data);
 
-    boolean existsByConteinerAndDataBetween(Long idConteiner, LocalDateTime primeiroHorario, LocalDateTime ultimoHorario);
+    boolean existsByConteinerIdAndDataBetween(Long idConteiner, LocalDateTime primeiroHorario, LocalDateTime ultimoHorario);
 }
