@@ -2,7 +2,7 @@ package com.santos.porto.domain.visita.validacoes.agendamento;
 
 import com.santos.porto.controller.DTO.DadosAgendamentoVisita;
 import com.santos.porto.domain.ValidacaoException;
-import com.santos.porto.domain.visita.VisitaRepository;
+import com.santos.porto.domain.repository.VisitaRepository;
 import com.santos.porto.domain.visita.validacoes.agendamento.ValidadorAgendamentoDeVisita;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

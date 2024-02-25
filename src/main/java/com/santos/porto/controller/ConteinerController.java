@@ -4,6 +4,7 @@ import com.santos.porto.domain.conteiner.Conteiner;
 import com.santos.porto.controller.DTO.DadosCadastroConteiner;
 import com.santos.porto.controller.DTO.DadosDetalhamentoConteiner;
 import com.santos.porto.domain.service.ConteinerService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/conteiner")
+@SecurityRequirement(name = "bearer-key")
 public class ConteinerController {
 
     @Autowired

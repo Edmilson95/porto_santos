@@ -4,6 +4,7 @@ import com.santos.porto.controller.DTO.DadosAgendamentoVisita;
 import com.santos.porto.controller.DTO.DadosCancelamentoVisita;
 import com.santos.porto.controller.DTO.DadosDetalhamentoVisita;
 import com.santos.porto.domain.visita.AgendaDeVisitas;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/visitas")
+@SecurityRequirement(name = "bearer-key")
 public class VisitaController {
 
     @Autowired

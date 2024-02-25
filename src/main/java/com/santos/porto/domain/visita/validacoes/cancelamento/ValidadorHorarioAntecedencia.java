@@ -2,7 +2,7 @@ package com.santos.porto.domain.visita.validacoes.cancelamento;
 
 import com.santos.porto.controller.DTO.DadosCancelamentoVisita;
 import com.santos.porto.domain.ValidacaoException;
-import com.santos.porto.domain.visita.VisitaRepository;
+import com.santos.porto.domain.repository.VisitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

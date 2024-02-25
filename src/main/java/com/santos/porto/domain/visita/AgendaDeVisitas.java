@@ -8,6 +8,7 @@ import com.santos.porto.domain.ValidacaoException;
 import com.santos.porto.domain.conteiner.Conteiner;
 import com.santos.porto.domain.repository.ConteinerRepository;
 import com.santos.porto.domain.repository.MovimentacaoRepository;
+import com.santos.porto.domain.repository.VisitaRepository;
 import com.santos.porto.domain.visita.validacoes.agendamento.ValidadorAgendamentoDeVisita;
 import com.santos.porto.domain.visita.validacoes.cancelamento.ValidadorCancelamentoDeVisita;
 import jakarta.validation.ValidationException;

@@ -7,6 +7,7 @@ import com.santos.porto.controller.DTO.DadosListagemMovimentacao;
 import com.santos.porto.domain.movimentacao.*;
 import com.santos.porto.domain.conteiner.enuns.Categoria;
 import com.santos.porto.domain.repository.MovimentacaoRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("movimentacao")
+@SecurityRequirement(name = "bearer-key")
 public class MovimentacaoController {
     @Autowired
     private MovimentacaoRepository repository;
