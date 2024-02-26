@@ -1,5 +1,6 @@
 package com.santos.porto.domain.visita;
 
+import com.santos.porto.controller.DTO.DadosAgendamentoVisita;
 import com.santos.porto.domain.conteiner.Conteiner;
 import com.santos.porto.domain.conteiner.enuns.MotivoCancelamento;
 import com.santos.porto.domain.movimentacao.Movimentacao;
@@ -33,6 +34,9 @@ public class Visita {
     private Movimentacao movimentacao;
 
     private LocalDateTime data;
+
+    public Visita(DadosAgendamentoVisita dadosAgendamentoVisita) {
+    }
 
 
     public void cancelar(MotivoCancelamento motivo) {
