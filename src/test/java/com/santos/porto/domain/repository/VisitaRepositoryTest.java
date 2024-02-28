@@ -3,6 +3,7 @@ package com.santos.porto.domain.repository;
 import com.santos.porto.controller.DTO.DadosAgendamentoVisita;
 import com.santos.porto.controller.DTO.DadosCadastroConteiner;
 import com.santos.porto.controller.DTO.DadosCadastroMovimentacao;
+import com.santos.porto.domain.ValidacaoException;
 import com.santos.porto.domain.conteiner.Conteiner;
 import com.santos.porto.domain.conteiner.enuns.*;
 import com.santos.porto.domain.movimentacao.Movimentacao;
@@ -34,18 +35,20 @@ class VisitaRepositoryTest {
     private TestEntityManager em;
 
     @Test
-    @DisplayName("Quando o conteiner possui outra visita no mesmo horario retorna uma exception")
+    @DisplayName("Se o conteiner possui outra visita neste horario retorna true")
     void existsByConteinerIdAndDataAndMotivoCancelamentoIsNullCenario1() {
+        //given ou arrange
         var proxSegundaAs10 = LocalDateTime.now()
                 .with(TemporalAdjusters.next(DayOfWeek.MONDAY))
                 .toLocalDate().atTime(10, 0);
         var proxSegundaAs10Mais30Min = proxSegundaAs10.plusMinutes(30);
-
         Long idConteiner = cadastrarConteiner("cliente", "1234ABCD", Tipo.PES_20, Status.CHEIO, Categoria.EXPORTACAO).getId();
         Long idMovimentacao = cadastrarMovimentacao(TipoMovimentacao.EMBARQUE, proxSegundaAs10, proxSegundaAs10Mais30Min,idConteiner).getId();
-        cadastrarVisita(idConteiner, idMovimentacao, proxSegundaAs10Mais30Min);
-
-       assertFalse(visitaRepository.existsByConteinerIdAndDataAndMotivoCancelamentoIsNull((long)1, proxSegundaAs10Mais30Min));
+        cadastrarVisita(idConteiner, idMovimentacao, proxSegundaAs10);
+        //when ou act
+        boolean existeVisita = visitaRepository.existsByConteinerIdAndDataAndMotivoCancelamentoIsNull(idConteiner, proxSegundaAs10);
+        //then ou assert
+        assertTrue(existeVisita);
     }
 
     @Test
