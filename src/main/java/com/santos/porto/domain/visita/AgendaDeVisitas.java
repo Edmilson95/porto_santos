@@ -6,6 +6,7 @@ import com.santos.porto.controller.DTO.DadosDetalhamentoVisita;
 import com.santos.porto.controller.VisitaController;
 import com.santos.porto.domain.ValidacaoException;
 import com.santos.porto.domain.conteiner.Conteiner;
+import com.santos.porto.domain.movimentacao.Movimentacao;
 import com.santos.porto.domain.repository.ConteinerRepository;
 import com.santos.porto.domain.repository.MovimentacaoRepository;
 import com.santos.porto.domain.repository.VisitaRepository;
@@ -39,16 +40,28 @@ public class AgendaDeVisitas {
         if (dados.idConteiner() != null && !conteinerRepository.existsById(dados.idConteiner())){
             throw new ValidacaoException("ID do Conteiner não existe.");
         }
-        if (!movimentacaoRepository.existsById(dados.idMovimentacao())){
+        if (dados.idMovimentacao() != null && !movimentacaoRepository.existsById(dados.idMovimentacao())){
             throw  new ValidacaoException("ID da Movimentacao não existe.");
         }
+        if (dados.data() == null){
+            throw new ValidacaoException("Necessário data para agendamento de visita.");
+        }
+        var data = dados.data();
 
         var conteiner = escolherConteiner(dados);
-        var movimentacao = movimentacaoRepository.getReferenceById(dados.idMovimentacao());
-        var visita = new Visita(null, null, conteiner, movimentacao, dados.data());
+        var movimentacao = escolherMovimentacao(dados);
+        var visita = new Visita(null, null, conteiner, movimentacao, data);
         visitaRepository.save(visita);
 
         return new DadosDetalhamentoVisita(visita);
+    }
+
+    private Movimentacao escolherMovimentacao(DadosAgendamentoVisita dados){
+        if (dados.idMovimentacao() == null){
+            throw new ValidacaoException("Dados não podem ser nulos!");
+        }
+
+        return movimentacaoRepository.getReferenceById(dados.idMovimentacao());
     }
 
     private Conteiner escolherConteiner(DadosAgendamentoVisita dados) {

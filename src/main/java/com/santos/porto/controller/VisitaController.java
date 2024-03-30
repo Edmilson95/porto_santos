@@ -21,7 +21,10 @@ public class VisitaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity agendar(@RequestBody @Valid DadosAgendamentoVisita dados){
+    public ResponseEntity agendar(@RequestBody(required = false) @Valid DadosAgendamentoVisita dados){
+        if (dados == null){
+            return ResponseEntity.badRequest().body("Informações inválidas");
+        }
         var dto = agenda.agendar(dados);
         return ResponseEntity.ok(dto);
     }
